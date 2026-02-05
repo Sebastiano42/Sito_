@@ -284,6 +284,31 @@ Vercel DEVE essere configurato per cercare in `/app/` invece della root del repo
 
 ---
 
+---
+
+## 🔧 Sessione 2026-02-05 (Fix Finale)
+
+### Problema
+`Command "npm run build" exited with 126` - errore permessi persistente
+
+### Causa Root
+**Vite 7.2.4 non esiste!** Era una versione inesistente nel package.json.
+
+### Fix Applicati
+1. ✅ Downgrade Vite: `7.2.4` → `5.4.11`
+2. ✅ Downgrade @vitejs/plugin-react: `5.1.1` → `4.3.4`
+3. ✅ Rimosso `kimi-plugin-inspect-react` da vite.config.ts (plugin dev non necessario)
+4. ✅ Aggiunto in vercel.json:
+   - `installCommand: "npm install --legacy-peer-deps"`
+   - `buildCommand: "npx vite build"`
+5. ✅ Rigenerato package-lock.json
+6. ✅ Eliminato progetto duplicato "sito" su Vercel (usare solo "app")
+
+### Risultato
+✅ **DEPLOYMENT FUNZIONANTE** - Progetto "app" live su Vercel
+
+---
+
 **Documentazione creata il:** 2026-02-05 ore 23:30
-**Ultima sessione:** Deployment Vercel troubleshooting
-**Prossima sessione:** Verifica deployment live + testing finale
+**Ultima sessione:** 2026-02-05 - Fix versione Vite
+**Stato:** ✅ DEPLOYMENT COMPLETATO
