@@ -340,6 +340,32 @@
 
 ## 📝 CHANGE LOG
 
+### 2026-02-05 - ore 23:30
+- 🚀 **DEPLOYMENT SESSION** - Troubleshooting Vercel Build
+  - **Problemi Risolti:**
+    - Fix #1: Vite command not found → Spostato vite in dependencies
+    - Fix #2: package.json ENOENT → Configurato Root Directory "app" su Vercel
+    - Fix #3: tsc Permission denied (126) → Rimosso `tsc -b` dal build script
+  - **Modifiche package.json:**
+    - Build script: `vite build` (rimosso tsc -b)
+    - Spostato in dependencies: vite, @vitejs/plugin-react
+  - **Configurazione Vercel:**
+    - Root Directory: app
+    - Framework Preset: Vite (auto-detect)
+    - Build/Output/Install: auto-detect (no override)
+  - **UI Changes:**
+    - Header: marco.design → seba.design
+  - **Documentazione Creata:**
+    - DEPLOYMENT_SESSION.md - log completo troubleshooting
+  - **Git Commits:** 10+ fix incrementali pushati su GitHub
+  - **Status:** Deploy ancora in troubleshooting (exit code 126 persiste)
+  - **Next:** Disattivare Override settings + Redeploy senza cache
+
+**File Modificati:**
+  - `/app/package.json` - Build script, dependencies moved
+  - `/app/src/sections/Header.tsx` - Nome seba.design
+  - `/app/DEPLOYMENT_SESSION.md` - Documentazione completa sessione
+
 ### 2026-02-05 - ore 22:00
 - 🎉 **FASE 9 COMPLETATA** - Deployment Finale e Progetto al 100%
   - **Build Production:**
