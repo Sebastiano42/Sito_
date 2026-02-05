@@ -1,7 +1,7 @@
-import { useState, useEffect, forwardRef, ForwardedRef } from 'react';
+import { useState, useEffect, forwardRef, type ForwardedRef } from 'react';
 import { Menu, X } from 'lucide-react';
 
-const Header = forwardRef(function Header(props: {}, ref: ForwardedRef<HTMLElement>) {
+const Header = forwardRef(function Header(_props: {}, ref: ForwardedRef<HTMLDivElement>) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 

@@ -75,8 +75,8 @@ export default function ControlsSection() {
 
         // Phase 3: SVG LINES DRAWING (20% - 50%)
         // Geometric lines draw in from edges
-        const mobileSvgElements = mobileSvg.querySelectorAll('path, line, circle, rect');
-        if (mobileSvgElements.length > 0) {
+        const mobileSvgElements = mobileSvg?.querySelectorAll('path, line, circle, rect');
+        if (mobileSvgElements && mobileSvgElements.length > 0) {
           tl.fromTo(mobileSvgElements,
             { strokeDashoffset: 500, opacity: 0 },
             {
@@ -151,7 +151,7 @@ export default function ControlsSection() {
 
         // Phase 7: ELEGANT EXIT (90% - 100%)
         // Everything scales out smoothly
-        const exitElements = [badge];
+        const exitElements: (HTMLDivElement | SVGSVGElement)[] = [badge];
         if (circles) exitElements.push(circles);
         if (mobileSvg) exitElements.push(mobileSvg);
 

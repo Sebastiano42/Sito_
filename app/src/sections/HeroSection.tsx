@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, forwardRef, ForwardedRef } from 'react';
+import { useEffect, useRef, useState, forwardRef, type ForwardedRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -27,7 +27,7 @@ const heroSlides = [
   },
 ];
 
-const HeroSection = forwardRef(function HeroSection(props: {}, forwardedRef: ForwardedRef<HTMLElement>) {
+const HeroSection = forwardRef(function HeroSection(_props: {}, forwardedRef: ForwardedRef<HTMLDivElement>) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const graphicElement1Ref = useRef<HTMLDivElement>(null);
@@ -252,7 +252,7 @@ const HeroSection = forwardRef(function HeroSection(props: {}, forwardedRef: For
   const currentSlideData = heroSlides[currentSlide];
 
   // Combine refs
-  const combinedRef = (node: HTMLElement | null) => {
+  const combinedRef = (node: HTMLDivElement | null) => {
     sectionRef.current = node;
     if (typeof forwardedRef === 'function') {
       forwardedRef(node);
@@ -451,7 +451,7 @@ const HeroSection = forwardRef(function HeroSection(props: {}, forwardedRef: For
                 },
               },
             }}
-            onMove={(splide) => {
+            onMove={(splide: any) => {
               // Update immediately when slider starts moving for better sync
               setCurrentSlide(splide.index);
             }}

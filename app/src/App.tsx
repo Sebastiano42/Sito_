@@ -37,11 +37,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
-  const headerRef = useRef<HTMLElement>(null);
-  const heroRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
 
   // Initialize reduced motion detection globally
-  const prefersReducedMotion = useReducedMotion();
+  useReducedMotion();
 
   // Animate content entrance after loader - smooth and fluid
   useEffect(() => {
@@ -87,7 +87,6 @@ function App() {
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 1,
-      smoothTouch: false,
       touchMultiplier: 2,
       infinite: false,
     });

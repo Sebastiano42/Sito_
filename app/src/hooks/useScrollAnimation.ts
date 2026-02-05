@@ -30,7 +30,7 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
     triggerOnce,
   });
 
-  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
+  const scrollTriggerRef = useRef<ScrollTrigger | undefined | null>(null);
 
   useEffect(() => {
     const element = elementRef.current;
@@ -46,7 +46,7 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
             start: 'top 80%',
             end: 'bottom 20%',
             toggleActions: 'play none none reverse',
-            ...animationConfig.scrollTrigger,
+            ...(animationConfig.scrollTrigger || {}),
           },
         });
 

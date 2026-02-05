@@ -17,9 +17,8 @@ export const initializeScrollOptimizations = () => {
 
   // Use batching for multiple ScrollTriggers
   ScrollTrigger.defaults({
-    ease: 'power2.out',
     // Markers only in development
-    markers: process.env.NODE_ENV === 'development' ? false : false,
+    markers: false,
   });
 };
 
@@ -35,7 +34,7 @@ export const cleanupScrollTriggers = () => {
  * Refresh ScrollTriggers after layout changes
  * Use debounced version to avoid excessive calls
  */
-let refreshTimeout: NodeJS.Timeout;
+let refreshTimeout: number;
 export const refreshScrollTriggers = (delay = 100) => {
   clearTimeout(refreshTimeout);
   refreshTimeout = setTimeout(() => {

@@ -12,7 +12,7 @@ export default function ParallaxSection() {
   const layer3Ref = useRef<HTMLDivElement>(null);
   const layer4Ref = useRef<HTMLDivElement>(null);
   const layer5Ref = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [_mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const section = sectionRef.current;
