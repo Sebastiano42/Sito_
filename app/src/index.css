@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 0%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: auto; /* Lenis gestisce lo scroll */
+    overflow-x: hidden;
+  }
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+  body {
+    @apply bg-white text-black antialiased;
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* ===== FLUID TYPOGRAPHY (FASE 7) ===== */
+
+/* Base font sizes with fluid scaling */
+html {
+  font-size: clamp(14px, 1.5vw, 18px);
+}
+
+/* Typography utility classes */
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Fluid headings - scale smoothly from mobile to desktop */
+.text-display-xl {
+  font-size: clamp(3rem, 10vw, 8rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-display-lg {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-display-md {
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.text-display-sm {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* Fluid body text */
+.text-body-lg {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.6;
+}
+
+.text-body-md {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.6;
+}
+
+.text-body-sm {
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+  line-height: 1.5;
+}
+
+/* Fluid labels and captions */
+.text-label {
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Section numbers (large decorative numbers) */
+.text-section-number {
+  font-size: clamp(4rem, 15vw, 12rem);
+  line-height: 1;
+  font-weight: 500;
+}
+
+/* Responsive spacing utilities */
+.spacing-section {
+  padding-block: clamp(3rem, 8vw, 8rem);
+}
+
+.spacing-element {
+  padding-block: clamp(1.5rem, 4vw, 4rem);
+}
+
+.gap-fluid-sm {
+  gap: clamp(0.5rem, 2vw, 1rem);
+}
+
+.gap-fluid-md {
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+.gap-fluid-lg {
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+/* Smooth scroll for GSAP + Lenis - già configurato sopra */
+
+/* Custom scrollbar - moved to PERFORMANCE OPTIMIZATIONS section below */
+
+/* Selection */
+::selection {
+  background: #000;
+  color: #fff;
+}
+
+/* Pin spacer fix */
+.pin-spacer {
+  pointer-events: none;
+}
+
+.pin-spacer > * {
+  pointer-events: auto;
+}
+
+/* Splide slider custom styles */
+.splide__arrow {
+  background: #000 !important;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.splide__arrow:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.splide__arrow svg {
+  fill: #fff !important;
+}
+
+.splide__slide {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.splide__slide:not(.is-active) {
+  opacity: 0.4;
+}
+
+.splide__slide.is-active {
+  opacity: 1;
+}
+
+/* Easing Demo Animations */
+@keyframes scale-in {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* ===== TEXTURE NOISE ANIMATION (FASE 6) ===== */
+
+/* Noise texture animation keyframes (from motion.zajno.com) */
+@keyframes noise-animation {
+  0% { background-position: 0% 0%; }
+  10% { background-position: -5% -10%; }
+  20% { background-position: -15% 5%; }
+  30% { background-position: 7% -25%; }
+  40% { background-position: 20% 25%; }
+  50% { background-position: -25% 10%; }
+  60% { background-position: 15% -25%; }
+  70% { background-position: 0% 35%; }
+  80% { background-position: 25% 10%; }
+  90% { background-position: -10% -15%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Noise overlay utility class */
+.noise-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/textures/Texture_01.png');
+  background-size: 512px 512px;
+  background-repeat: repeat;
+  opacity: 0.2;
+  pointer-events: none;
+  animation: noise-animation 8s steps(10) infinite;
+  z-index: 10;
+  will-change: transform;
+  transform: translateZ(0); /* GPU acceleration */
+}
+
+/* Hide texture on mobile/tablet for performance */
+@media (max-width: 1024px) {
+  .noise-overlay::before {
+    display: none;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS (FASE 7) ===== */
+
+/* GPU Acceleration for animated elements */
+.gsap-animated,
+[data-gsap-animated] {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Contain paint for isolated animations */
+section {
+  contain: layout style paint;
+}
+
+/* Optimize images and media */
+img,
+video {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
+}
+
+/* Reduce repaints for fixed/sticky elements */
+header,
+.header-fixed {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Optimize scrolling performance */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar with theme colors */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0c0b0b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c8cfe8;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fdfcfa;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c8cfe8 #0c0b0b;
+}
+
+/* Improve rendering performance */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:motion.zajno.com)",
+      "Bash(npm install:*)",
+      "Bash(node scripts/generateNoise.js:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout:*)"
+    ]
+  }
+}

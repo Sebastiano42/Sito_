@@ -1,0 +1,375 @@
+{
+  "metadata": {
+    "projectName": "Motion Portfolio - Interactive Scrollytelling Website",
+    "projectType": "landing_page_portfolio",
+    "sector": "web_design_motion_design",
+    "author": "s£ba",
+    "domain": "s£ba.dev",
+    "createdAt": "2026-02-04",
+    "pdrVersion": "2.0",
+    "phase": "MVP - Replica Fedele motion.zajno.com"
+  },
+
+  "objectives": {
+    "primary": [
+      "Creare una esperienza interactive scrollytelling che insegni principi di web design e motion design",
+      "Showcasare 3-4 case studies di progetti (e-commerce, landing pages, WordPress plugins)",
+      "Generare lead tramite contact form + WhatsApp integration"
+    ],
+    "criticalRequirements": [
+      "Animazioni scroll-based fluide e precise (GSAP ScrollTrigger)",
+      "Eccellente su ENTRAMBI desktop e mobile (non compromessi)",
+      "Performance: FCP < 1.5s, LCP < 2.5s",
+      "Accessibilità: prefers-reduced-motion, keyboard navigation"
+    ]
+  },
+
+  "scope": {
+    "sections": [
+      {
+        "name": "Hero",
+        "description": "Introduzione immersiva - fade in, scale animazioni, scroll hint",
+        "content": "Headline principale + subtitle + scroll indicator"
+      },
+      {
+        "name": "Section 1: Web Design Principles",
+        "description": "Educational - pinned section con content swap",
+        "content": "Headline + descrizione + illustrazione/screenshot"
+      },
+      {
+        "name": "Section 2: Motion Design Mastery",
+        "description": "Educational - parallax multi-layer",
+        "content": "Headline + testo + animazioni SVG o video"
+      },
+      {
+        "name": "Section 3: Case Studies Carousel",
+        "description": "3-4 case studies interattivi con hover states",
+        "content": "Cards con immagini, titolo, descrizione, tech stack"
+      },
+      {
+        "name": "Section 4: Services/Expertise",
+        "description": "Showcase competenze con animazioni di reveal",
+        "content": "Grid di servizi (e-commerce, landing pages, WordPress plugins)"
+      },
+      {
+        "name": "Section 5: Interactive Demo",
+        "description": "Real-time interaction - mouse-driven animations",
+        "content": "Elemento SVG o shape che reagisce al mouse"
+      },
+      {
+        "name": "Footer/CTA",
+        "description": "Contact form + WhatsApp button",
+        "content": "Form + bottone WhatsApp + social links"
+      }
+    ],
+    "outOfScope": [
+      "Blog posts o news section",
+      "E-commerce functionality",
+      "User authentication",
+      "Multiple language support (fase 2)",
+      "Backend CMS (tutto statico/JSON)"
+    ]
+  },
+
+  "suggestedStack": {
+    "language": "TypeScript",
+    "framework": "Next.js 14+ (App Router)",
+    "styling": "Tailwind CSS + CSS Modules",
+    "animation": {
+      "primary": "GSAP 3.12+ (ScrollTrigger + MotionPath + SplitText)",
+      "secondary": "Framer Motion (micro-interactions semplici)",
+      "smoothScroll": "Lenis (@studio-freight/lenis)"
+    },
+    "forms": "React Hook Form + Zod validation",
+    "audio": "Howler.js (optional per sound design)",
+    "database": "Nessuno (contenuto stattico in JSON)",
+    "deployment": {
+      "frontend": "Vercel (gratis, dominio custom seba.dev)",
+      "backend": "Aruba PHP (contact form handler)"
+    },
+    "tools": {
+      "editor": "VS Code",
+      "versionControl": "Git + GitHub",
+      "packageManager": "npm o pnpm (preferibilmente pnpm)",
+      "deployment": "Vercel CLI + GitHub Actions",
+      "monitoring": "Vercel Analytics + Lighthouse CI"
+    },
+    "integrations": [
+      "WhatsApp API (via Arura PHP backend o third-party service)",
+      "Email service (Resend o SMTP Aruba)",
+      "Form submission handler (Arura PHP endpoint)"
+    ],
+    "rationale": "Next.js per performance e SEO ottimale. GSAP è standard per animazioni scroll-based professionali. Lenis per smooth scroll premium. Tailwind per velocità sviluppo. TypeScript per type safety. Vercel per deployment semplicissimo con dominio custom gratis. Backend PHP su Arura per contact form (già nella tua infrastruttura)."
+  },
+
+  "designSystem": {
+    "colorPalette": {
+      "primary": "#000000",
+      "secondary": "#FFFFFF",
+      "accent": "#00FF00",
+      "neutral": {
+        "50": "#F8F8F8",
+        "100": "#F0F0F0",
+        "200": "#E0E0E0",
+        "500": "#808080",
+        "900": "#1A1A1A"
+      },
+      "rationale": "Replica motion.zajno.com: nero + bianco + verde neon per contrasto massimo e impatto visivo"
+    },
+    "typography": {
+      "headings": {
+        "font": "Inter Tight o Space Grotesk (sans-serif bold)",
+        "sizes": {
+          "h1": "clamp(2.5rem, 8vw, 5rem)",
+          "h2": "clamp(2rem, 6vw, 3.5rem)",
+          "h3": "clamp(1.5rem, 4vw, 2.5rem)"
+        },
+        "lineHeight": "1.1",
+        "letterSpacing": "-0.02em"
+      },
+      "body": {
+        "font": "Inter (sans-serif regular)",
+        "size": "clamp(1rem, 2vw, 1.125rem)",
+        "lineHeight": "1.6",
+        "letterSpacing": "0"
+      },
+      "rationale": "Bold, modern, high contrast. Zajno usa font senza serif con peso elevato per impact. Responsive using CSS clamp()."
+    },
+    "spacing": {
+      "section_height": "100vh to 300vh (dipende dalle animazioni)",
+      "padding_horizontal": "clamp(1.5rem, 5vw, 4rem)",
+      "padding_vertical": "clamp(2rem, 8vh, 6rem)",
+      "gap_grid": "clamp(1rem, 3vw, 2rem)"
+    },
+    "components": {
+      "buttons": {
+        "primary": "Sfondo nero, testo bianco, border neon-green on hover",
+        "secondary": "Border nero, testo nero, hover inverte colori",
+        "state": "Active: scale 0.95, hover: scale 1.05 con smooth transition"
+      },
+      "cards": {
+        "style": "Minimal con shadow subtle, border-bottom neon-green on hover",
+        "padding": "clamp(1.5rem, 3vw, 2rem)",
+        "borderRadius": "0 (sharp corners come Zajno)"
+      },
+      "animations": {
+        "transition_fast": "0.3s power2.out",
+        "transition_normal": "0.6s power2.out",
+        "transition_slow": "1.2s power3.out"
+      }
+    }
+  },
+
+  "codePreferences": {
+    "style": [
+      "Clean & well-commented",
+      "Modulare - componenti riusabili",
+      "Performance-first - no unnecessary re-renders"
+    ],
+    "architecture": "Component-based (React) + functional components con hooks",
+    "responsiveDesign": true,
+    "mobileFirstApproach": true,
+    "seoOptimized": true,
+    "accessibilityFocus": true,
+    "performanceTarget": {
+      "FCP": "< 1.5s",
+      "LCP": "< 2.5s",
+      "CLS": "< 0.1",
+      "lighthouse": "> 90"
+    },
+    "commenting": "Detailed per componenti complessi, minimal per codice auto-esplicativo",
+    "linting": "ESLint + Prettier",
+    "testing": "Lighthouse CI per performance, Cypress per animations (fase 2)"
+  },
+
+  "priorities": {
+    "1_max_priority": "Animazioni scroll-based fluide e precise - questo È il progetto",
+    "2_high_priority": "Mobile experience perfetta - entrambi i device devono essere spettacolari",
+    "3_medium_priority": "Performance Lighthouse > 90 - non negoziabile per portfolio",
+    "4_low_priority": "SEO dettagliato e meta tags - importante ma secondario rispetto al wow effect"
+  },
+
+  "constraints": {
+    "technical": [
+      "Nessun CMS - contenuto statico in JSON",
+      "Nessun server-side rendering per animazioni (useGSAP client-side)",
+      "Mobile: semplificare leggermente animazioni CPU-intensive",
+      "Browser support: Chrome, Firefox, Safari (ultimi 2 anni)",
+      "Accessibilità: WCAG 2.1 AA minimo"
+    ],
+    "compatibility": "Next.js 14+, React 18+, Node.js 18+",
+    "tokenEfficiency": true,
+    "deployment": "Vercel (Next.js) + Arura PHP (contact handler)",
+    "budgetNotes": "Vercel Free plan sufficiente. Dominio seba.dev registrato separatamente."
+  },
+
+  "specialConsiderations": {
+    "animations": {
+      "scrollTrigger_config": {
+        "scrub": "1 (smooth sync con scroll)",
+        "pin": "true per sezioni chiave",
+        "start": "top top (o variabili per mobile)",
+        "end": "+=300% (varia per sezione)"
+      },
+      "easing": {
+        "standard": "power2.out",
+        "fast": "power1.inOut (0.3s)",
+        "slow": "power3.out (1.2s)"
+      },
+      "mobileFallback": "Disabilita alcune animazioni CPU-intensive su mobile (scroll velocity < threshold)"
+    },
+    "performance": [
+      "Lazy load immagini + video (next/image with loading='lazy')",
+      "Code splitting per GSAP plugins",
+      "SVG optimization (SVGO)",
+      "Minify CSS/JS in production",
+      "Image optimization: WebP + fallback"
+    ],
+    "accessibility": [
+      "prefers-reduced-motion media query - disabilita animazioni se utente lo richiede",
+      "Keyboard navigation completa",
+      "ARIA labels per interactive elements",
+      "Color contrast minimo 4.5:1",
+      "Focus indicators visibili"
+    ],
+    "formHandling": {
+      "method": "POST a backend Arura PHP",
+      "endpoint": "https://seba.dev/api/contact.php",
+      "validation": "Zod schema lato client + server",
+      "rateLimit": "5 invii per IP ogni 24h",
+      "response": "Conferma visiva + redirect a thank you section"
+    },
+    "whatsappIntegration": {
+      "method": "Link WhatsApp (versione semplice) o API (versione avanzata)",
+      "simple": "href='https://wa.me/+39XXXXXXXXX?text=Ciao%20Seba'",
+      "advanced": "Backend Arura PHP con Twilio o WhatsApp Business API (fase 2)"
+    }
+  },
+
+  "implementationStrategy": {
+    "suggestedApproach": "Setup Next.js foundation con GSAP + Lenis. Sviluppare prima il Hero section come template. Poi replicare pattern per ogni sezione. Test performance e mobile ogni step. Deploy early su Vercel per validation.",
+    "phasesSuggested": [
+      "Phase 1 (Setup): Next.js 14, TypeScript, Tailwind, GSAP + ScrollTrigger + Lenis, folder structure",
+      "Phase 2 (Core): Hero section + smooth scroll + first ScrollTrigger example",
+      "Phase 3 (Sections 1-2): Educational sections con pinned + parallax",
+      "Phase 4 (Case Studies): Carousel interattivo con hover states",
+      "Phase 5 (Services + Demo): Services grid + interactive mouse-tracking element",
+      "Phase 6 (Contact): Form + WhatsApp integration + footer",
+      "Phase 7 (Polish): Mobile optimization, performance tuning, accessibility audit, Lighthouse > 90",
+      "Phase 8 (Deploy): Vercel deployment, domain setup, Arura PHP backend testing"
+    ],
+    "estimatedComplexity": "HIGH - Animazioni scroll-based richiedono precisione e testing continuo"
+  },
+
+  "contentRequirements": {
+    "sections_content": {
+      "hero": {
+        "headline": "Max 6 parole, bold impact",
+        "subtitle": "Max 15 parole, descrittivo",
+        "cta": "Scroll down indicator"
+      },
+      "educational_sections": {
+        "headline": "Max 8 parole",
+        "body": "Max 60 parole",
+        "media": "1 immagine/video ottimizzato"
+      },
+      "caseStudies": {
+        "count": "3-4 projects",
+        "per_project": {
+          "image": "1200x800px (WebP + JPG fallback)",
+          "title": "Titolo project",
+          "description": "Max 40 parole",
+          "tech_stack": "Array di tecnologie usate",
+          "link": "Link al progetto live"
+        }
+      },
+      "footer": {
+        "form_fields": ["Nome", "Email", "Messaggio"],
+        "cta_buttons": ["Invia", "WhatsApp"]
+      }
+    },
+    "asset_status": "PLACEHOLDER - saranno sostituiti con contenuti reali di Sebastiano"
+  },
+
+  "claudeCodeOptimization": {
+    "tokenEfficiency": true,
+    "recommendedPromptStrategy": [
+      "Prompt 1: Setup Next.js + GSAP + Lenis + folder structure (foundation)",
+      "Prompt 2: Hero section con fade-in/scale animations (template)",
+      "Prompt 3: Section 1-2 con ScrollTrigger + pin + parallax",
+      "Prompt 4: Case studies carousel con hover states",
+      "Prompt 5: Services section + interactive mouse tracking",
+      "Prompt 6: Contact form + WhatsApp button",
+      "Prompt 7: Mobile responsiveness + animation fallbacks",
+      "Prompt 8: Performance optimization + Lighthouse audit"
+    ],
+    "keyPatterns": [
+      "useGSAP hook per ogni sezione - evita dependency issues",
+      "Lenis wrapper in layout.tsx - applica a tutto il sito",
+      "ScrollTrigger.refresh() dopo window resize - essenziale per mobile",
+      "Lazy load immagini con next/image",
+      "Conditional animations based on window width"
+    ],
+    "commonPitfalls": [
+      "NON usare GSAP senza ScrollTrigger.refresh() su resize - causa bug animation",
+      "NON animare layout properties (width, height) - usa transform invece",
+      "NON lazy load immagini hero (LCP impact negativo)",
+      "NON dimenticare media query per mobile - le animazioni desktop sono troppo pesanti",
+      "NON usare setTimeout/setInterval con animazioni - usa GSAP timeline"
+    ]
+  },
+
+  "deploymentPlan": {
+    "frontend": {
+      "platform": "Vercel",
+      "steps": [
+        "1. Push codice su GitHub",
+        "2. Connetti repo a Vercel (automatic deployment)",
+        "3. Setup domain seba.dev in Vercel settings",
+        "4. DNS configuration (nameserver o CNAME record)",
+        "5. Enable automatic deployments da main branch"
+      ],
+      "environmentVariables": [
+        "NEXT_PUBLIC_CONTACT_ENDPOINT=https://seba.dev/api/contact.php",
+        "NEXT_PUBLIC_WHATSAPP_NUMBER=+39XXXXXXXXX"
+      ]
+    },
+    "backend": {
+      "platform": "Arura FTP Hosting Linux",
+      "endpoint": "/api/contact.php",
+      "setup": "Upload contact handler PHP script via FTP",
+      "requirements": "PHP 7.4+, cURL enabled, SMTP configured"
+    },
+    "domainSetup": {
+      "domain": "seba.dev",
+      "registrar": "TBD (Namecheap, Google Domains, etc.)",
+      "dns": "Point to Vercel nameserver",
+      "email": "Optional - setup email forwarding su Arura"
+    }
+  },
+
+  "successMetrics": {
+    "performance": {
+      "FCP": "< 1.5s",
+      "LCP": "< 2.5s",
+      "CLS": "< 0.1",
+      "lighthouse": "> 90 (all metrics)"
+    },
+    "engagement": {
+      "avgTimeOnPage": "> 2 min",
+      "scrollDepth": "> 80%",
+      "bounceRate": "< 25%"
+    },
+    "conversions": {
+      "contactFormSubmissions": "Track via analytics",
+      "whatsappClicks": "Track via event listener"
+    }
+  },
+
+  "additionalNotes": {
+    "phase2_personalization": "Dopo MVP funzionante, customizzare: contenuti personali, case studies reali, palette colori personale, numero sezioni custom, analytics integration",
+    "inspiration_reference": "motion.zajno.com - fedele replica per MVP, poi twist personale",
+    "teamMembers": "Sebastiano Moniaci (design + development via Claude Code)",
+    "feedbackLoop": "Test su desktop + mobile continuamente, iterate animations, verify performance prima di deploy"
+  }
+}
