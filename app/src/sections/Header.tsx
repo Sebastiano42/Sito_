@@ -40,7 +40,7 @@ const Header = forwardRef(function Header(_props: {}, ref: ForwardedRef<HTMLDivE
               </div>
             </div>
             <span className="hidden sm:inline text-white text-sm font-medium tracking-wide border border-white/30 px-4 py-2 rounded-full">
-              marco.design
+              seba.design
             </span>
           </div>
 
